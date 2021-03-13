@@ -23,6 +23,6 @@ int main(){
             }
         }
     }
-    if(dp[k]>=0)printf("Yes, we can make the number\n");
+    if(dp[k]>=0)printf("Yes, we can make the number.\n");
     else printf("No, we cannot make the number.\n");
 }
