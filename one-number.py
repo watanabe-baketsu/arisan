@@ -21,7 +21,7 @@ for i in N:
 	if i == '1':
 		ans += new-10**(n-1)+1
 		ans += cell_dic[str(n-1)]
-		if re.search(str(new),'[1-9]') == False:
+		if re.search(str(new)[1:],'[1-9]') == False:
 			break
 		
 	elif i == '0':
@@ -32,7 +32,7 @@ for i in N:
 	else:
 		ans += 10**(n-1)
 		ans += int(i)*cell_dic[str(n-1)]
-		if re.search(str(new),'[1-9]') == False:
+		if re.search(str(new)[1:],'[1-9]') == False:
 			break
 		
 	new = new-(int(i)*10**(n-1))
