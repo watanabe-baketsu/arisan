@@ -3,16 +3,20 @@
 # 1<=N<=10**20とする。
 
 import re
+import sys
 
 ("Nを入力してください")
 print("N : ")
 N = input()
+if re.search(N,'[^0-9]') != False:
+	print("正の整数を入力してください。")
+	sys.exit()
 
 n = len(N) # Nの桁数を求める。
 if n == 1:
 	ans = 1
 	print("Nまでの1の出現数 : {}個".format(ans))
-	exit()
+	sys.exit()
 cell_dic = {} # 10^(n-1)までの各桁の1の出現数の最大値を辞書化。
 for i in range(n):
 	# example: 2桁の数の1の最大出現回数
