@@ -13,9 +13,10 @@ using namespace std;
 void trace(int A[],int N){
     int i;
     for(i=0;i<N;i++){
-        printf("%d ",A[i]);
+       cout << A[i];
+       cout << " ";
     }
-    printf("\n");
+    cout << "\n";
 }
 
 // 挿入ソート
@@ -23,8 +24,10 @@ void insertion_sort(int A[], int N){
     int i,j,v;
     for(i=1;i<N;i++){
         v = A[i];
-        for(j=i-1;A[j]>v;j--){
-            A[j]= A[j+1];
+        j = i-1;
+        while(j>= 0 && A[j]>v){
+            A[j+1] = A[j];
+            j--;
         }
         A[j+1] = v;
     }
@@ -32,13 +35,16 @@ void insertion_sort(int A[], int N){
 }
 
 int main(){
-    int A[100];
-    int N,j;
+    cout << "Hello, Please enter the N.\n";
+    int N;
     cin >> N;
+    int *A = new int[N];
     int i = 0;
-    int Ai;
-    while(cin>>Ai){
-        A[i] == Ai;
+    cout << "Please enter the array contents. ex)1 2 3 4 5\n";
+    cout << "and, enter 'ctrl + Z' at the end of array.\n";
+    int k;
+    while(cin >> k){
+        A[i] = k;
         i++;
     }
     trace(A,N);
