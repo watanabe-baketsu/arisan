@@ -1,11 +1,10 @@
-// N個の要素を含む数列Aを読み込み、バブルソートで昇順に並び替え出力するプログラムを作成せよ。
-// また、バブルソートで行われた要素の交換回数も出力せよ。
+// N個の要素を含む数列Aを読み込み、選択ソートで昇順に並び替え出力するプログラムを作成せよ。
+// また、選択ソートで行われた要素の交換回数も出力せよ。
 // 1<=N<=100, 0<=Ai<=100
 
 // input
 // 1行目：数列の長さN
 // 2行目：N個の整数、空白区切り
-
 #include <iostream>
 using namespace std;
 
@@ -25,24 +24,25 @@ void swap(int A[], int a, int b){
     A[b] = c;
 }
 
-int bubble_sort(int A[], int N){
-    int i = 0; // ソート済み部分列のインデックス
-    int j;
+// 選択ソート
+int selection_sort(int A[], int N){
     int count = 0;
-    bool flag = 1;
-    while(flag){
-        for(j=N-1;j>=i+1;j--){
-            if(A[j]<A[j-1]){
-                swap(A, j, j-1);
-                count++;
-            }
+    int i, j;
+    for(i=0;i<N-1;i++){
+        int minj = i;
+        for(j=i+1;j<N;j++){
+            if(A[minj] > A[j]) minj = j;
         }
-        i++;
-        if(i==N-1) flag = 0;
+        if(i != minj){
+            swap(A,i,minj);
+            count++;
+        }
     }
     trace(A,N);
+
     return count;
-}
+} 
+
 
 int main(){
     cout << "Hello, Please enter the N.\n";
@@ -59,10 +59,10 @@ int main(){
     }
     trace(A,N);
     int count;
-    count = bubble_sort(A,N);
+    count = selection_sort(A,N);
     cout << "The number of swap : " << count << "\n";
 
     system("pause");
-    
+
     return 0;
 }

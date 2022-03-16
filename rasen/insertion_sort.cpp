@@ -50,5 +50,7 @@ int main(){
     trace(A,N);
     insertion_sort(A,N);
 
+    system("pause");
+
     return 0;
 }
