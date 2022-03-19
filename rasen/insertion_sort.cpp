@@ -9,6 +9,8 @@
 #include <iostream>
 using namespace std;
 
+int count;
+
 // 配列の要素を順番に出力
 void trace(int A[],int N){
     int i;
@@ -28,6 +30,7 @@ void insertion_sort(int A[], int N){
         while(j>= 0 && A[j]>v){
             A[j+1] = A[j];
             j--;
+            count++;
         }
         A[j+1] = v;
     }
@@ -47,8 +50,9 @@ int main(){
         A[i] = k;
         i++;
     }
-    trace(A,N);
+    count = 0;
     insertion_sort(A,N);
+    cout << "The number of swap : " << count << "\n";
 
     system("pause");
 
