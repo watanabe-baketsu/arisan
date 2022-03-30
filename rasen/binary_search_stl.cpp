@@ -28,10 +28,10 @@ int main(){
     cin >> q;
     int *T = new int[q];
     cout << "Please enter the contents of T.\n";
-    for (int i=0;i<n;i++) cin >> T[i];
+    for (int i=0;i<q;i++) cin >> T[i];
 
     int sum = 0;
-    for (int i=0;i<n;i++){
+    for (int i=0;i<q;i++){
         if (*lower_bound(S, S+n, T[i]) == T[i]) sum++;
     }
     
